@@ -1,42 +1,423 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Ubuntu Resilience Consulting</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubuntu Resilience Consulting - Conseil en Résilience</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header { background: #2C3E50; color: white; padding: 1rem; text-align: center; }
-        .hero { background: #E95420; color: white; padding: 4rem 1rem; text-align: center; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .card { background: white; padding: 2rem; margin: 1rem 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        footer { background: #2C3E50; color: white; text-align: center; padding: 2rem; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2C3E50, #34495E);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .lang-btn.active {
+            background: white;
+            color: #2C3E50;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Sections bilingues */
+        .bilingual-section {
+            margin: 2rem 0;
+            padding: 2rem 0;
+        }
+        
+        .language-content {
+            display: none;
+        }
+        
+        .language-content.active {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E95420, #77216F);
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .signature {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            padding: 1rem;
+            border-left: 4px solid white;
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #E95420;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #E95420;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: #2C3E50;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+        
+        .contact-info {
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .hero {
+                padding: 6rem 0 3rem;
+                margin-top: 80px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Header avec sélecteur de langue -->
     <header>
-        <h1>Ubuntu Resilience Consulting</h1>
+        <div class="container nav-container">
+            <div class="logo">Ubuntu Resilience Consulting</div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
     </header>
-    
+
+    <!-- Hero Section -->
     <section class="hero">
-        <h2>Conseil stratégique en résilience pour l'Afrique</h2>
-        <p>"Your Resilience, Our Ubuntu"</p>
+        <div class="container">
+            <!-- Version Française -->
+            <div class="language-content fr active">
+                <h1>Ubuntu Resilience Consulting</h1>
+                <p class="subtitle">Conseil stratégique en résilience pour l'Afrique</p>
+                <div class="signature">
+                    "Your Resilience, Our Ubuntu"<br>
+                    Allier l'expertise technique internationale avec la sagesse contextuelle africaine
+                </div>
+            </div>
+            
+            <!-- Version Anglaise -->
+            <div class="language-content en">
+                <h1>Ubuntu Resilience Consulting</h1>
+                <p class="subtitle">Strategic Resilience Consulting for Africa</p>
+                <div class="signature">
+                    "Your Resilience, Our Ubuntu"<br>
+                    Blending international technical expertise with African contextual wisdom
+                </div>
+            </div>
+        </div>
     </section>
-    
-    <div class="container">
-        <div class="card">
-            <h3>Présentation</h3>
-            <p>Cabinet de conseil basé à Antananarivo, spécialisé dans la résilience des communautés et organisations africaines.</p>
+
+    <!-- Présentation Générale -->
+    <section class="bilingual-section">
+        <div class="container">
+            <!-- Version Française -->
+            <div class="language-content fr active">
+                <div class="card">
+                    <h2>Présentation Générale</h2>
+                    <p><strong>Ubuntu Resilience Consulting</strong> est un cabinet de conseil stratégique basé à Antananarivo, Madagascar. Nous nous spécialisons dans le développement de la <strong>résilience des communautés et des organisations</strong> face aux chocs climatiques, économiques et sociaux.</p>
+                    <p>Fort d'une expérience de <strong>plus de 23 ans</strong> dans la gestion de projets et programmes multi-bailleurs à travers l'Afrique, nous nous positionnons comme un <strong>partenaire de confiance</strong> pour les gouvernements, les organisations internationales, les ONG et le secteur privé.</p>
+                </div>
+            </div>
+            
+            <!-- Version Anglaise -->
+            <div class="language-content en">
+                <div class="card">
+                    <h2>General Presentation</h2>
+                    <p><strong>Ubuntu Resilience Consulting</strong> is a strategic consulting firm based in Antananarivo, Madagascar. We specialize in developing <strong>community and organizational resilience</strong> against climate, economic, and social shocks.</p>
+                    <p>With <strong>over 23 years of experience</strong> managing multi-donor projects and programs across Africa, we position ourselves as a <strong>trusted partner</strong> for governments, international organizations, NGOs, and the private sector.</p>
+                </div>
+            </div>
         </div>
-        
-        <div class="card">
-            <h3>Contact</h3>
-            <p>📧 contact@ubuntu-rc.com</p>
-            <p>📱 +261 32 25 893 64</p>
-            <p>📍 Antananarivo, Madagascar</p>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="bilingual-section">
+        <div class="container">
+            <div class="service-grid">
+                <!-- Version Française -->
+                <div class="language-content fr active">
+                    <div class="service-card">
+                        <h3>🌍 Vision</h3>
+                        <p>Contribuer à bâtir des sociétés africaines résilientes, inclusives et durables face aux défis économiques, sociaux et environnementaux.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🎯 Mission</h3>
+                        <p>Offrir des services de conseil, de recherche et de renforcement de capacités de haute qualité, basés sur l'expertise technique, l'innovation et la proximité avec les communautés.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>💡 Approche Ubuntu</h3>
+                        <p>Nous intégrons les principes de la philosophie Ubuntu - <em>"Je suis parce que nous sommes"</em> - dans toutes nos interventions.</p>
+                    </div>
+                </div>
+                
+                <!-- Version Anglaise -->
+                <div class="language-content en">
+                    <div class="service-card">
+                        <h3>🌍 Vision</h3>
+                        <p>To contribute to building resilient, inclusive, and sustainable African societies facing economic, social, and environmental challenges.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🎯 Mission</h3>
+                        <p>To provide high-quality consulting, research, and capacity-building services based on technical expertise, innovation, and community proximity.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>💡 Ubuntu Approach</h3>
+                        <p>We integrate the principles of Ubuntu philosophy - <em>"I am because we are"</em> - in all our interventions.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    
+    </section>
+
+    <!-- Domaines d'Expertise -->
+    <section class="bilingual-section">
+        <div class="container">
+            <!-- Version Française -->
+            <div class="language-content fr active">
+                <h2>Domaines d'Expertise</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3>🌱 Résilience Climatique</h3>
+                        <p>Évaluation de vulnérabilité, adaptation climatique, gestion des risques</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🏘️ Développement Communautaire</h3>
+                        <p>Sécurité alimentaire, moyens d'existence durables, développement agricole</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🏛️ Conseil Institutionnel</h3>
+                        <p>Audit institutionnel, politiques stratégiques, réformes organisationnelles</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>📚 Recherche & Formation</h3>
+                        <p>Évaluations, études de faisabilité, formation sur mesure</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Version Anglaise -->
+            <div class="language-content en">
+                <h2>Areas of Expertise</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3>🌱 Climate Resilience</h3>
+                        <p>Vulnerability assessment, climate adaptation, risk management</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🏘️ Community Development</h3>
+                        <p>Food security, sustainable livelihoods, agricultural development</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>🏛️ Institutional Consulting</h3>
+                        <p>Institutional audit, strategic policies, organizational reforms</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>📚 Research & Training</h3>
+                        <p>Evaluations, feasibility studies, customized training</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réalisations -->
+    <section class="bilingual-section">
+        <div class="container">
+            <!-- Version Française -->
+            <div class="language-content fr active">
+                <h2>Réalisations Phares</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>2023-2025</h4>
+                        <p>Audit organisationnel du Projet MIONJO (Banque Mondiale)</p>
+                        <p>Diagnostic institutionnel de Madagascar National Parks</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2017-2022</h4>
+                        <p>Recrutement du personnel du Fonds de Développement Agricole</p>
+                        <p>Coordination du Programme Régional de Sécurité Alimentaire (FAO)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Version Anglaise -->
+            <div class="language-content en">
+                <h2>Key Achievements</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>2023-2025</h4>
+                        <p>Organizational audit of MIONJO Project (World Bank)</p>
+                        <p>Institutional diagnosis of Madagascar National Parks</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>2017-2022</h4>
+                        <p>Staff recruitment for Agricultural Development Fund</p>
+                        <p>Coordination of Regional Food Security Program (FAO)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
     <footer>
-        <p>Ubuntu Resilience Consulting - Site en construction</p>
+        <div class="container">
+            <div class="contact-info">
+                <!-- Version Française -->
+                <div class="language-content fr active">
+                    <h3>Ubuntu Resilience Consulting</h3>
+                    <p>📍 Lot VA 38 LF Tsiadana, 101 Antananarivo - Madagascar</p>
+                    <p>📱 +261 32 25 893 64</p>
+                    <p>📧 contact@ubuntu-rc.com</p>
+                    <p>🌐 www.ubuntu-rc.com</p>
+                </div>
+                
+                <!-- Version Anglaise -->
+                <div class="language-content en">
+                    <h3>Ubuntu Resilience Consulting</h3>
+                    <p>📍 Lot VA 38 LF Tsiadana, 101 Antananarivo - Madagascar</p>
+                    <p>📱 +261 32 25 893 64</p>
+                    <p>📧 contact@ubuntu-rc.com</p>
+                    <p>🌐 www.ubuntu-rc.com</p>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Version corrigée du sélecteur de langue
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // Mettre à jour les boutons
+                    langButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Mettre à jour le contenu
+                    document.querySelectorAll('.language-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.querySelectorAll('.language-content.' + lang).forEach(content => {
+                        content.classList.add('active');
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
